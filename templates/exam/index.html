@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Examination System</title>
+    <link rel="stylesheet" href="{% static 'exam/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'exam/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    {% include "exam/navbar.html" %}
+
+    <section id="section-jumbotron" class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <img src="static\home.png" alt="Online Examination" class="img-fluid">
+            <p class="lead mt-3">Attend your examinations online with ease!</p>
+
+            <p class="lead">Start your journey now:</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <a href="/student/studentsignup" class="btn btn-lg btn-info btn-block"><i class="fa fa-graduation-cap mr-2"></i> Sign Up as Student</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "exam/footer.html" %}
+
+    <script src="{% static 'exam/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Online Examination System</title>
+  <link rel="stylesheet" href="{% static 'exam/css/bootstrap.min.css' %}">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .jumbotron {
+      margin-top: 0;
+      margin-bottom: 0;
+      background-color: #f8f9fa; /* Light gray background */
+      padding: 100px 0;
+    }
+
+    .jumbotron h1 {
+      font-size: 3.5rem; /* Larger font size for heading */
+      text-align: center;
+      color: #007bff; /* Primary color */
+    }
+
+    .jumbotron p {
+      font-size: 1.5rem; /* Larger font size for paragraphs */
+      text-align: center;
+      color: #6c757d; /* Gray text color */
+    }
+
+    .btn-secondary,
+    .btn-primary {
+      font-weight: bold;
+    }
+
+    .btn-secondary:hover,
+    .btn-primary:hover {
+      opacity: 0.9; /* Slightly reduce opacity on hover */
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "exam/navbar.html" %}
+  <br><br>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-4">Hello Student,</h1>
+      <p class="lead">Welcome to the Online Examination System</p>
+      <hr class="my-4">
+      <p>Select an option below to access the system</p>
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-secondary rounded-pill mr-3" href="studentsignup" role="button">Create Your Account</a>
+        <a class="btn btn-primary rounded-pill" href="studentlogin" role="button">Login Now</a>
+      </div>
+    </div>
+  </div>
+ 
+  {% include "exam/footer.html" %}
+</body>
+
+</html>

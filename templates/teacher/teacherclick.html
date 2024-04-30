@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Online Examination System</title>
+  <link rel="stylesheet" href="{% static 'exam/css/bootstrap.min.css' %}">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .jumbotron {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+    }
+
+    .jumbotron h1 {
+      font-size: 3.5rem;
+      color: #007bff;
+    }
+
+    .jumbotron p {
+      font-size: 1.5rem;
+      color: #6c757d;
+    }
+
+    .btn-secondary,
+    .btn-primary {
+      font-weight: bold;
+    }
+
+    .btn-secondary:hover,
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+
+  {% include "exam/navbar.html" %}
+  <br><br>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3 text-center mb-4">Welcome, Teachers!</h1>
+      <p class="lead text-center mb-5">Join the Online Examination System</p>
+      <hr class="my-4">
+      <p class="text-center mb-4">Access the system by creating your account or logging in.</p>
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-secondary rounded-pill mr-3" href="teachersignup" role="button">Create Your Account</a>
+        <a class="btn btn-primary rounded-pill" href="teacherlogin" role="button">Login Now</a>
+      </div>
+    </div>
+  </div>
+
+  {% include "exam/footer.html" %}
+</body>
+
+</html>

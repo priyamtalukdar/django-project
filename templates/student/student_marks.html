@@ -1,0 +1,109 @@
+{% extends 'student/studentbase.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+        a:link,
+        a:visited {
+            text-decoration: none;
+            color: #333; /* Change link color */
+        }
+
+        h6 {
+            text-align: center;
+            margin-bottom: 20px; /* Add space below h6 */
+        }
+
+        .container {
+            margin: 50px auto; /* Center the container */
+        }
+
+        .panel {
+            border-radius: 0; /* Remove border radius */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+        }
+
+        .panel-heading {
+            background-color: #007bff; /* Change panel heading background color */
+            color: #fff; /* Change panel heading text color */
+            border: none; /* Remove border */
+            border-radius: 0; /* Remove border radius */
+        }
+
+        .panel-title {
+            margin: 0; /* Remove margin */
+            padding: 10px 15px; /* Add padding */
+        }
+
+        .table {
+            border: 1px solid #dee2e6; /* Add border */
+            border-radius: 0; /* Remove border radius */
+        }
+
+        .table th,
+        .table td {
+            border: none; /* Remove table cell border */
+            padding: 10px; /* Add padding */
+            vertical-align: middle; /* Vertically center content */
+        }
+
+        .btn {
+            border-radius: 0; /* Remove border radius */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Change primary button background color */
+            border-color: #007bff; /* Change primary button border color */
+            color: #fff; /* Change button text color */
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Change primary button hover background color */
+            border-color: #0056b3; /* Change primary button hover border color */
+        }
+
+        /* Custom styling for course names */
+        .course-name {
+            font-size: 16px; /* Adjust font size */
+            font-weight: bold; /* Make text bold */
+            color: #333; /* Change text color */
+        }
+
+        /* Adjust button size and spacing */
+        .btn-sm {
+            padding: 6px 12px; /* Adjust padding */
+            font-size: 14px; /* Adjust font size */
+        }
+    </style>
+</head>
+
+<br><br>
+<div class="container">
+    <div class="panel panel-primary rounded-0">
+        <div class="panel-heading rounded-0">
+            <h6 class="panel-title">My Marks</h6>
+        </div>
+        <table class="table table-hover table-bordered" id="dev-table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% for t in courses %}
+            <tr>
+                <td><span class="course-name">{{ t.course_name }}</span></td>
+                <td class='text-center'><a class="btn btn-primary btn-sm" href="{% url 'check-marks' t.id %}"><span class="glyphicon glyphicon-eye-open"></span> View Marks</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<br><br><br><br><br><br>
+{% endblock content %}

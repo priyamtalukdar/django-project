@@ -1,0 +1,102 @@
+{% extends 'teacher/teacherbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<h2 style="text-align:center;">Add Questions</h2>
+<form id="question-form" method="POST" autocomplete="off" style="margin:100px;margin-top: 0px;">
+    {%csrf_token%}
+    <div id="question-fields">
+        <!-- Initial question field -->
+        <div class="question-field">
+            <div class="form-group">
+                <label for="course">Course</label>
+                {% render_field questionForm.courseID|attr:'required:true' class="form-control form-control-sm rounded-0"  %}
+            </div>
+            <div class="form-group">
+                <label for="question">Question</label>
+                {% render_field questionForm.question|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: What is the relation calculus?" %}
+            </div>
+            <div class="form-group">
+                <label for="marks">Marks</label>
+                {% render_field questionForm.marks|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: 5" %}
+            </div>
+            <div class="form-group">
+                <label for="option1">Option 1</label>
+                {% render_field questionForm.option1|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a kind of procedural language" %}
+            </div>
+            <div class="form-group">
+                <label for="option2">Option 2</label>
+                {% render_field questionForm.option2|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a non-procedural language" %}
+            </div>
+            <div class="form-group">
+                <label for="option3">Option 3</label>
+                {% render_field questionForm.option3|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a high-level language" %}
+            </div>
+            <div class="form-group">
+                <label for="option4">Option 4</label>
+                {% render_field questionForm.option4|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is Data Definition language" %}
+            </div>
+            <div class="form-group">
+                <label for="answer">Correct Answer</label>
+                {% render_field questionForm.answer|attr:'required:true' class="form-control form-control-sm rounded-0" %}
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="add-question" class="btn btn-primary" style="border-radius: 0%;">Add Question</button>
+    <button type="submit" class="btn btn-success" style="border-radius: 0%;">Submit Questions</button>
+</form>
+<br><br><br>
+
+<script>
+    // JavaScript for dynamically adding question fields
+    $(document).ready(function() {
+        var questionCounter = 1;
+
+        $('#add-question').click(function() {
+            questionCounter++;
+
+            var questionField = `
+                <div class="question-field">
+                    <hr>
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        {% render_field questionForm.courseID|attr:'required:true' class="form-control form-control-sm rounded-0"  %}
+                    </div>
+                    <div class="form-group">
+                        <label for="question">Question</label>
+                        {% render_field questionForm.question|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: What is the relation calculus?" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="marks">Marks</label>
+                        {% render_field questionForm.marks|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: 5" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="option1">Option 1</label>
+                        {% render_field questionForm.option1|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a kind of procedural language" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="option2">Option 2</label>
+                        {% render_field questionForm.option2|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a non-procedural language" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="option3">Option 3</label>
+                        {% render_field questionForm.option3|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is a high-level language" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="option4">Option 4</label>
+                        {% render_field questionForm.option4|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: It is Data Definition language" %}
+                    </div>
+                    <div class="form-group">
+                        <label for="answer">Correct Answer</label>
+                        {% render_field questionForm.answer|attr:'required:true' class="form-control form-control-sm rounded-0" %}
+                    </div>
+                </div>
+            `;
+
+            $('#question-fields').append(questionField);
+        });
+    });
+</script>
+
+{% endblock content %}
